@@ -1,0 +1,142 @@
+body {
+    background-image: url(https://spark.ru/upload/other/b_6089bcf9c92e1.jpg);
+    background-size:cover ;
+    background-repeat:no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.status {
+    color: green;
+}
+
+.status-red {
+    color: red;
+}
+
+.label {
+    font-weight: bold;
+}
+
+header {
+    width: 100%;
+    background-color: bisque;
+}
+h1 {
+    text-align: center;
+    line-height: 100px;
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 200px;
+}
+
+.history-block h2 {
+    text-align: center;
+}
+
+.container {
+    background-color: lightgreen;
+    margin: 0 auto;
+    padding: 50px;
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    gap: 40px;
+}
+
+.stats {
+    width: 200px;
+    height: 120px;
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.history-block {
+    width: 200px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.expense-input {
+   width: 200px;
+   height: 20px;
+   border-radius: 5px;
+}
+
+.category {
+   width: 200px;
+   height: 20px;
+   border-radius: 5px;
+   margin-right: 200px;
+}
+
+.add-btn {
+    width: 150px;
+    height: 25px;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.clear-btn {
+    width: 150px;
+    height: 25px;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.change-btn {
+    border: none;
+    background-color: white;
+}
+
+@media (max-width:767px) {
+    .container {
+        width: 220px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+    }
+    h1 {
+        margin-bottom: 30px;
+    }
+    .add-btn {
+        margin: 0 auto;
+        width: 200px;
+    }
+    .clear-btn {
+        margin-left: 25px;
+    }
+    .history-block {
+        margin-left: 25px;
+        width: 200px;
+    }
+    .expense-input {
+        margin: 0 auto;
+    }
+    .stats {
+        margin: 0 auto;
+    }
+    .history-block {
+        margin: 0 auto;
+    }
+    .category {
+      margin: 0 auto;
+    }
+    .clear-btn {
+        margin: 0 auto;
+        width: 200px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+}

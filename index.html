@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Приложение для учета расходов</title>
+</head>
+<body>
+        <header>
+            <h1>Приложение для учета расходов</h1>
+        </header>
+
+    <div class="container">
+        <input
+            type="number"
+            class="expense-input"
+               />
+        
+        <button class="add-btn">
+            Добавить
+        </button>
+
+        <select class="category">
+            <option hidden disabled selected value="Категория">Категория</option>
+            <option value="Продукты">Продукты</option>
+            <option value="Транспорт">Транспорт</option>
+            <option value="Кафе">Кафе</option>
+            <option value="Аптека">Аптека</option>
+            <option value="Квартира">Квартира</option>
+            <option value="Другое">Другое</option>
+        </select>
+        <div class="stats">
+            <p class="label"> Лимит:
+                <span class="limit"></span> руб.
+                <button class="change-btn">
+                    <img src="img/changelimit.png" alt="смена лимита">
+                </button>
+            </p>
+            <p class="label"> Сумма:
+                <span class="sum"></span> руб.
+            </p>
+            <p class="label"> Статус:
+                <span class="status"></span>
+            </p>
+        </div>
+        <div class="history-block">
+            <h2>История</h2>
+        
+            <div class="history">
+            </div>
+        </div>
+
+        <button class="clear-btn">
+            Сбросить расходы
+        </button>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
