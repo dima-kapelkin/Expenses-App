@@ -21,6 +21,7 @@ init();
 btnNode.addEventListener('click', function () {
     const currentSum  = getExpenseFromUser();
     if(!currentSum) {
+      alert('Не задана сумма');
       return;
     }
 
@@ -33,12 +34,16 @@ btnNode.addEventListener('click', function () {
     const expense = {sum:currentSum,category:currentCategory};
 
     addExpense(expense);
+
+    saveExpensesToLS();
+    
     render(expenses);
 
  });
 
  clearNode.addEventListener('click', function () {
    expenses = [];
+   localStorage.removeItem("expenses");
    statusNode.classList.remove(outLimitClassName);
    render(expenses);
    statusNode.innerText = inLimit;
@@ -54,6 +59,7 @@ btnNode.addEventListener('click', function () {
 
     limitNode.innerText = newLimit;
     limit = newLimit;
+    localStorage.setItem("limit",newLimit);
 
     render(expenses);
  });
@@ -61,9 +67,24 @@ btnNode.addEventListener('click', function () {
 
 //1 инит
 function init() {
+  const limitFromLS = parseInt(localStorage.getItem("limit"));
+  if(limitFromLS) {
+    limit = limitFromLS;
+  }
+
+  const expensesFromLsString = localStorage.getItem("expenses");
+  const expensesFromLS = JSON.parse(expensesFromLsString);
+
+  if (Array.isArray(expensesFromLS)) {
+    expenses = expensesFromLS;
+  }
+  
+
   limitNode.innerText = limit;
   statusNode.innerText = inLimit;
   sumNode.innerText = calculateSum(expenses);
+  render(expenses);
+
 }
 
 //2 получение от пользователя
@@ -97,7 +118,7 @@ function addExpense (expense) {
   expenses.push(expense);
 }
 //6 рендер суммы
-function renderSum() {
+function renderSum(expenses) {
    sumNode.innerText = calculateSum(expenses) ;
 }
 
@@ -129,11 +150,16 @@ function render(expenses) {
   const sum = calculateSum(expenses);
 
   renderHistory(expenses);
-  renderSum();
+  renderSum(expenses);
   renderStatus(sum);
 }
 
 //10 получение категории
 function getCategory () {
     return categoryNode.value;
+}
+
+function saveExpensesToLS () {
+    const expString = JSON.stringify(expenses);
+    localStorage.setItem("expenses",expString);
 }
